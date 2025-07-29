@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Room Type</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* Animations */
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      animation: zoomIn 0.6s ease-out;
+    }
+
+    h1 {
+      color: #222;
+      font-weight: bold;
+      text-align: center;
+      animation: fadeSlideIn 0.8s ease forwards;
+    }
+
+    p {
+      color: #444;
+      text-align: center;
+      animation: fadeSlideIn 0.9s ease forwards;
+    }
+
+    .room-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .room-option {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    .room-option h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .hostel-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .hostel {
+      flex: 1 1 150px;
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hostel:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .hostel p {
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    .hostel button {
+      padding: 8px 16px;
+      background-color: #2d2fdf;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hostel button a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hostel button:hover {
+      background-color: #1a1aff;
+    }
+
+    @media (max-width: 600px) {
+      .hostel-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Select Room Type</h1>
+    <p>Welcome to the Hostel Room Allocation System.<br>Please choose your preferred room option:</p>
+
+    <div class="room-list">
+      <!-- 4-Bedded Room -->
+      <div class="room-option">
+        <h3>4-Bedded Room</h3>
+        <div class="hostel-group">
+          <div class="hostel">
+            <p>Levi Hall</p>
+            <button><a href="roompickLevi.html">Book Now</a></button>
+          </div>
+          <div class="hostel">
+            <p>Integrity Hall</p>
+            <button><a href="roompickIntegrity.html">Book Now</a></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6-Bedded Room -->
+      <div class="room-option">
+        <h3>6-Bedded Room</h3>
+        <div class="hostel-group">
+          <div class="hostel">
+            <p>Joesph Hall</p>
+            <button><a href="roompickjoesph.html">Book Now</a></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6-Bedded Shared Bathroom -->
+      <div class="room-option">
+        <h3>6-Bedded Room (Shared Bathroom)</h3>
+        <div class="hostel-group">
+          <div class="hostel">
+            <p>Elisha Hall</p>
+            <button><a href="roompickelisha.html">Book Now</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

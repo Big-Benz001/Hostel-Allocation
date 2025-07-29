@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login</title>
+    <style>
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        animation: fadeInUp 1s ease forwards;
+        margin: 0;
+      }
+
+      .login-card {
+        width: 500px;
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+        animation: zoomIn 0.7s ease-in-out;
+      }
+
+      h1 {
+        color: black;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease forwards;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        animation: fadeInUp 1.2s ease forwards;
+      }
+
+      label {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .input-container {
+        position: relative;
+        width: 90%;
+        animation: fadeInUp 1.3s ease forwards;
+      }
+
+      .input-icon {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        width: 20px;
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
+      .input-container input {
+        width: 100%;
+        padding: 10px 10px 10px 40px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .input-container input:focus {
+        outline: 2px solid #2d2fdf;
+        border-color: #2d2fdf;
+        box-shadow: 0 0 5px rgba(45, 47, 223, 0.3);
+      }
+
+      .avatar {
+        width: 60px;
+        margin: 0 auto 20px;
+        display: block;
+      }
+
+      button {
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        background-color: #2d2fdf;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 10px auto 0;
+        width: 250px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        animation: fadeInUp 1.4s ease forwards;
+      }
+
+      button:hover {
+        background-color: #1a1aff;
+        transform: scale(1.03);
+      }
+
+      #signup {
+        width: 100px;
+        background-color: #444;
+      }
+
+      #signup:hover {
+        background-color: #222;
+      }
+
+      #signup-link {
+        display: inline-block;
+        text-align: center;
+        margin-top: 15px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #444;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        animation: fadeInUp 1.5s ease forwards;
+      }
+
+      #signup-link:hover {
+        background-color: #222;
+        transform: scale(1.05);
+      }
+
+      p {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+        animation: fadeInUp 1.5s ease forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-card">
+      <h1>Login</h1>
+      <form action="/login" method="POST">
+        <label for="username">Student ID</label>
+        <div class="input-container">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/194/194935.png"
+            alt="user icon"
+            class="input-icon"
+          />
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="e.g. 22/9922"
+            required
+          />
+        </div>
+
+        <label for="password">Password</label>
+        <div class="input-container">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2767/2767194.png"
+            alt="password icon"
+            class="input-icon"
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" id="login">Login</button>
+        <p>
+          Already have an account?<br /><a href="signup.html" id="signup-link"
+            >Sign Up</a
+          >
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

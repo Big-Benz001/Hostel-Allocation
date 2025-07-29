@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        animation: fadeInUp 1s ease forwards;
+      }
+
+      .signup-card {
+        width: 500px;
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+        max-height: 90vh;
+        overflow: hidden;
+        animation: zoomIn 0.8s ease-in-out;
+      }
+
+      .scroll-container {
+        max-height: 80vh;
+        overflow-y: auto;
+        padding-right: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: #2d2fdf transparent;
+        animation: fadeInUp 1.2s ease forwards;
+      }
+
+      h1 {
+        color: black;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease forwards;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        animation: fadeInUp 1.3s ease forwards;
+      }
+
+      label {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+        transition: box-shadow 0.3s ease;
+      }
+
+      input:focus,
+      select:focus {
+        outline: 2px solid #2d2fdf;
+        border-color: #2d2fdf;
+        box-shadow: 0 0 5px rgba(45, 47, 223, 0.3);
+      }
+
+      button {
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        background-color: #2d2fdf;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        width: 70%;
+        margin: 10px auto 0;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        animation: fadeInUp 1.4s ease forwards;
+      }
+
+      button:hover {
+        background-color: #1a1b9f;
+        transform: scale(1.03);
+      }
+
+      #login-link {
+        display: inline-block;
+        text-align: center;
+        margin-top: 15px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #444;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        animation: fadeInUp 1.5s ease forwards;
+      }
+
+      #login-link:hover {
+        background-color: #222;
+        transform: scale(1.05);
+      }
+
+      p {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+        animation: fadeInUp 1.5s ease forwards;
+      }
+
+      @media (max-width: 600px) {
+        .signup-card {
+          width: 90%;
+          padding: 20px;
+        }
+      }
+
+      @media (max-height: 600px) {
+        .signup-card {
+          max-height: 80vh;
+          overflow-y: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="signup-card">
+      <div class="scroll-container">
+        <form action="/signup" method="POST">
+          <h1>Sign Up</h1>
+
+          <label for="firstname">First Name:</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            placeholder="e.g. Kareem"
+            required
+          />
+
+          <label for="lastname">Last Name:</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="e.g. Shonibare"
+            required
+          />
+
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="level">Level:</label>
+          <select name="level" id="level" required>
+            <option value="">Select Level</option>
+            <option value="100">100 Level</option>
+            <option value="200">200 Level</option>
+            <option value="300">300 Level</option>
+            <option value="400">400 Level</option>
+          </select>
+
+          <label for="matricno">Matric Number:</label>
+          <input
+            type="text"
+            id="matricno"
+            name="matricno"
+            placeholder="e.g. CST/2024/1234"
+            required
+          />
+
+          <label for="department">Department:</label>
+          <input
+            type="text"
+            id="department"
+            name="department"
+            placeholder="e.g. Computer Science"
+            required
+          />
+
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="e.g. example@domain.com"
+            required
+          />
+
+          <label for="phonenumber">Phone Number:</label>
+          <input
+            type="tel"
+            id="phonenumber"
+            name="phonenumber"
+            placeholder="e.g. 08012345678"
+            required
+          />
+
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="6"
+            placeholder="Minimum 6 characters"
+            required
+          />
+
+          <label for="confirm_password">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm_password"
+            name="confirm_password"
+            minlength="6"
+            placeholder="Re-enter password"
+            required
+          />
+
+          <button type="submit">Sign Up</button>
+
+          <p>
+            Already have an account?<br /><a href="login.html" id="login-link"
+              >Login</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+    <script>
+      document.getElementById('signup-link').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const matricno = document.getElementById('matricno').value.trim();
+        if (!matricno) {
+          alert('Please enter your matric number.');
+          return;
+        }
+        const password = document.getElementById('password').value;
+        const gender = document.getElementById('gender').value;
+        if(!matricno||!password||!gender){
+          alert('Please Enter all the reqired fields')
+        }
+      });
+      
+    </script>
+  </body>
+</html>
