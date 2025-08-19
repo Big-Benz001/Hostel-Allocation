@@ -167,7 +167,7 @@
   <body>
     <div class="signup-card">
       <div class="scroll-container">
-        <form action="/signup" method="POST">
+        <form action="/signup" method="POST" id="signup-form">
           <h1>Sign Up</h1>
 
           <label for="firstname">First Name:</label>
@@ -271,21 +271,62 @@
         </form>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-      document.getElementById('signup-link').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const matricno = document.getElementById('matricno').value.trim();
-        if (!matricno) {
-          alert('Please enter your matric number.');
-          return;
-        }
-        const password = document.getElementById('password').value;
-        const gender = document.getElementById('gender').value;
-        if(!matricno||!password||!gender){
-          alert('Please Enter all the reqired fields')
-        }
+  document
+    .getElementById("signup-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const studentId = document.getElementById("matricno").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirm_password").value.trim();
+      const gender = document.getElementById("gender").value.trim();
+      const firstname = document.getElementById("firstname").value.trim();
+      const lastname = document.getElementById("lastname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phonenumber").value.trim();
+      const department = document.getElementById("department").value.trim();
+      const level = document.getElementById("level").value.trim();
+
+      if (!studentId || !password || !gender) {
+        Swal.fire("Missing Fields", "Please fill in all required fields.", "warning");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        Swal.fire("Password Error", "Passwords do not match!", "error");
+        return;
+      }
+
+      if (localStorage.getItem(studentId)) {
+        Swal.fire("Account Exists", "This matric number is already registered.", "info");
+        return;
+      }
+
+      const Userdata = {
+        firstname,
+        lastname,
+        gender,
+        level,
+        studentId,
+        department,
+        email,
+        phone,
+        password,
+      };
+      localStorage.setItem(studentId, JSON.stringify(Userdata));
+
+      Swal.fire({
+        title: "Success!",
+        text: "Sign up successful! You can now log in.",
+        icon: "success",
+        confirmButtonText: "Go to Login"
+      }).then(() => {
+        window.location.href = "login.html";
       });
-      
-    </script>
+    });
+</script>
+
   </body>
 </html>

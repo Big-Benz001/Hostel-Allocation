@@ -171,7 +171,7 @@
   <body>
     <div class="login-card">
       <h1>Login</h1>
-      <form action="/login" method="POST">
+      <form action="/login" method="POST" id="login-form">
         <label for="username">Student ID</label>
         <div class="input-container">
           <img
@@ -181,7 +181,7 @@
           />
           <input
             type="text"
-            id="username"
+            id="studentId"
             name="username"
             placeholder="e.g. 22/9922"
             required
@@ -212,5 +212,51 @@
         </p>
       </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+  document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const studentId = document.getElementById('studentId').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    const Storedvalue = localStorage.getItem(studentId);
+
+    if (!Storedvalue) {
+      Swal.fire("No User Found", "Please sign up first.", "error");
+      return;
+    }
+
+    const user = JSON.parse(Storedvalue);
+
+    if (user.password !== password) {
+      Swal.fire("Login Failed", "Incorrect password. Please try again.", "error");
+      return;
+    }
+
+    if (user.gender.toLowerCase() === "male") {
+      Swal.fire({
+        title: "Welcome Back, Sir!",
+        text: "Redirecting you to your hostel page...",
+        icon: "success",
+        confirmButtonText: "Continue"
+      }).then(() => {
+        window.location.href = 'Beds.html';
+      });
+    } else if (user.gender.toLowerCase() === "female") {
+      Swal.fire({
+        title: "Welcome Back, Ma'am!",
+        text: "Redirecting you to your hostel page...",
+        icon: "success",
+        confirmButtonText: "Continue"
+      }).then(() => {
+        window.location.href = 'BedsFemale.html';
+      });
+    } else {
+      Swal.fire("Invalid Gender", "Please sign up again.", "warning");
+      window.location.href = 'signup.html';
+    }
+  });
+</script>
   </body>
 </html>
