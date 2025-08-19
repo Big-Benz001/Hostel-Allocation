@@ -153,11 +153,11 @@
         <div class="hostel-group">
           <div class="hostel">
             <p>Levi Hall</p>
-            <button><a href="roompickLevi.html">Book Now</a></button>
+            <button onclick="selectHostel('Levi Hall', 'roompickLevi.html')">Book Now</button>
           </div>
           <div class="hostel">
             <p>Integrity Hall</p>
-            <button><a href="roompickIntegrity.html">Book Now</a></button>
+            <button onclick="selectHostel('Integrity Hall', 'roompickIntegrity.html')">Book Now</button>
           </div>
         </div>
       </div>
@@ -167,8 +167,8 @@
         <h3>6-Bedded Room</h3>
         <div class="hostel-group">
           <div class="hostel">
-            <p>Joesph Hall</p>
-            <button><a href="roompickjoesph.html">Book Now</a></button>
+            <p>Joseph Hall</p>
+            <button onclick="selectHostel('Joseph Hall', 'roompickjoesph.html')">Book Now</button>
           </div>
         </div>
       </div>
@@ -179,11 +179,17 @@
         <div class="hostel-group">
           <div class="hostel">
             <p>Elisha Hall</p>
-            <button><a href="roompickelisha.html">Book Now</a></button>
+             <button onclick="selectHostel('Elisha Hall', 'roompickelisha.html')">Book Now</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    function selectHostel(hostel, page) {
+      localStorage.setItem('selectedHostel', hostel);
+      window.location.href = page;
+    }
+  </script>
 </body>
 </html>

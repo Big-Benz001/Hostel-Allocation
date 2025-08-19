@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #3f3f3f, #161212);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 600px;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    h1 {
+      color: #222;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .details {
+      margin: 20px 0;
+      padding: 15px;
+      background: #fff;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .confirm {
+      background-color: #2d2fdf;
+      color: white;
+    }
+
+    .confirm:hover {
+      background-color: #1a1aff;
+    }
+
+    .back {
+      background-color: #888;
+      color: white;
+    }
+
+    .back:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Confirm Your Booking</h1>
+    <p>Please review your selection below:</p>
+
+    <div class="details" id="booking-details">
+      <!-- Hostel and room info will be shown here -->
+    </div>
+
+    <button class="btn confirm" onclick="confirmBooking()">✅ Confirm Booking</button>
+    <button class="btn back" onclick="goBack()">← Change Selection</button>
+  </div>
+
+  <script>
+    // Load booking details
+    const bookingData = JSON.parse(localStorage.getItem("selectedRoom"));
+
+    if (bookingData) {
+      document.getElementById("booking-details").innerText =
+        `Hostel: ${bookingData.hostel}\nRoom: ${bookingData.room}`;
+    } else {
+      document.getElementById("booking-details").innerText =
+        "⚠️ No booking details found!";
+    }
+
+    function confirmBooking() {
+      alert("🎉 Booking Confirmed! Hostel: " + bookingData.hostel + ", Room: " + bookingData.room);
+      // You can redirect to a success page here
+      // window.location.href = "success.html";
+    }
+
+    function goBack() {
+      window.history.back(); // takes them back to roompick page
+    }
+  </script>
+</body>
+</html>
